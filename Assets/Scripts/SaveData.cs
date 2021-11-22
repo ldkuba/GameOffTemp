@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class SaveData
 {
-    public string CurrentLevel;
+    public LevelDescriptor CurrentLevel;
     // public sthsth..checkpoint Checkpoint;
 
     // public int Points
