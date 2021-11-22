@@ -40,44 +40,65 @@ public class GameManager : MonoBehaviour
     // ========================================================================
 
     [SerializeField]
-    private List<string> m_levels;
-    public List<string> Levels { get; }
-    public string CurrentLevel { get; private set; }
+    private List<LevelDescriptor> m_levels;
+    public List<LevelDescriptor> Levels { get { return m_levels; } }
+    public LevelDescriptor CurrentLevel { get; private set; }
 
     [SerializeField]
     private string m_menuScene;
-    public string MenuScene { get; }
+    public string MenuScene { get { return m_menuScene; } }
 
     [SerializeField]
     private string m_levelsScene;
-    public string LevelsScene { get; }
+    public string LevelsScene { get { return m_levelsScene; } }
 
     // Stores the players progess
     public SaveData PlayerProgress { get; private set; }
 
     // ================== SCENE SWITCHING ========================
 
-    public void Play()
+    public void Play(LevelDescriptor level = null)
     {
         if(PlayerProgress == null)
         {
-            // If this object is being created, the game has just been launched
-            // Set current level to level 1
-            if(m_levels.Count == 0)
-            {
-                Debug.LogError("There are no registered levels!");
-                return;
-            }
-
-            // Set current level to first level
-            CurrentLevel = m_levels[0];
-
-            // Create player save data
             PlayerProgress = new SaveData();
-            PlayerProgress.CurrentLevel = CurrentLevel;
         }
 
-        StartCoroutine(LoadScene(CurrentLevel));
+        if(level == null)
+        {
+            if(PlayerProgress.CurrentLevel == null)
+            {
+                if(m_levels.Count == 0)
+                {
+                    Debug.LogError("There are no registered levels");
+                    return;
+                }
+
+                CurrentLevel = m_levels[0];
+            }else
+            {
+                CurrentLevel = PlayerProgress.CurrentLevel;
+            }
+        }else
+        {
+            if(!m_levels.Contains(level))
+            {
+                Debug.LogError("The level: " + level.levelName + " is not registered");
+                return;
+            }
+            
+            CurrentLevel = level;
+        }
+
+        // Set player progress to target level
+        PlayerProgress.CurrentLevel = CurrentLevel;
+
+        StartCoroutine(LoadScene(CurrentLevel.scenePath));
+    }
+
+    public void LevelSelect()
+    {
+        StartCoroutine(LoadScene(LevelsScene));
     }
 
     public void ExitToMenu()

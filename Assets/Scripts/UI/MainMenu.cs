@@ -33,7 +33,7 @@ public class MainMenu : MonoBehaviour
 
     public void OnClickLevels()
     {
-
+        GameManager.Instance.LevelSelect();
     }
 
     public void OnClickQuit()
