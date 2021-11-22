@@ -42,6 +42,11 @@ public class LevelsMenu : MonoBehaviour
         GameManager.Instance.Play(level);
     }
 
+    public void OnExitToMenu()
+    {
+        GameManager.Instance.ExitToMenu();
+    }
+
     void OnDisable()
     {
         foreach(Transform child in m_listRoot.transform)
