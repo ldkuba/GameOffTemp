@@ -25,7 +25,12 @@ you probably don't have to do it but i have my canvas rendering mode set to `Scr
 
 Drag and drop `Assets/Prefabs/UI/PauseMenu` and `Assets/Prefabs/UI/CoinCounter` onto the Canvas object
 
-## Important information
-Launch the game from the MainMenu scene. I know it's annoying. You an launch the game from your level but some things might crash. It shouldn't affect your local scripts in the level though, only the stuff that uses GameManager.Instance
+## Step 5: Add Checkpoints
+Add `Assets/Prefabs/Checkpoints/CheckpointManager` to your scene. Drag and drop the Player GameObject into the `Player` field in the inspector.
 
-I will be adding more stuff here as we go. Most notably setting up the `CoinManager` and `CheckpointManager` once they're done
+Add `Assets/Prefabs/Checkpoints/Checkpoint` objects to the scene under the CheckpointManager object. Position them in your scene. Then add them to the `Checkpoints` List in the `CheckpointManager` __IN ORDER__. A checkpoint will only be triggered if it has a higher index in the List then the current active checkpoint (we can change this behaviour easily, i just thought it would make sense)
+
+## Important information
+Launch the game from the MainMenu scene. I know it's annoying. You can launch the game from your level but some things might crash. It shouldn't affect your local scripts in the level though, only the stuff that uses GameManager.Instance
+
+I will be adding more stuff here as we go. Most notably setting up the `CoinManager` it's done

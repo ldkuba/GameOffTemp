@@ -59,8 +59,6 @@ public class BasicEnemyController : AIController
 
     public override void EdgeTriggerEvent(EdgeTrigger edge)
     {
-        Debug.Log("Edge triggered");
-
         if(m_isMovingRight)
         {
             if (edge.jumpRight)
