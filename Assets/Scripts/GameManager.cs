@@ -4,10 +4,14 @@ using UnityEditor;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.Events;
+using System;
 
 // args: amount
 [System.Serializable]
 public class CoinCollectedEvent : UnityEvent<int> {}
+
+[System.Serializable]
+public class SaveProgressEvent : UnityEvent {}
 
 public class GameManager : MonoBehaviour
 {
@@ -42,6 +46,18 @@ public class GameManager : MonoBehaviour
         m_instance = this;
 
         coinCollectedEvent = new CoinCollectedEvent();
+        saveProgressEvent = new SaveProgressEvent();
+    }
+
+    void Update()
+    {
+        // try{
+        //     string saveData = PlayerProgress.ToString();
+        //     Debug.Log(saveData);
+        // }catch(Exception)
+        // {
+        //     Debug.Log("No save data available");
+        // }
     }
 
     // ========================================================================
@@ -61,6 +77,7 @@ public class GameManager : MonoBehaviour
 
     // Stores the players progess
     public SaveData PlayerProgress { get; private set; }
+    public SaveProgressEvent saveProgressEvent;
 
     // ================== SCENE SWITCHING ========================
 
@@ -69,6 +86,11 @@ public class GameManager : MonoBehaviour
         if(PlayerProgress == null)
         {
             PlayerProgress = new SaveData();
+        }
+
+        if(CurrentLevel != null)
+        {
+            saveProgressEvent.Invoke();
         }
 
         if(level == null)
@@ -99,17 +121,35 @@ public class GameManager : MonoBehaviour
 
         // Set player progress to target level
         PlayerProgress.CurrentLevel = CurrentLevel;
+        if(!PlayerProgress.levelData.ContainsKey(CurrentLevel))
+        {
+            PlayerProgress.levelData.Add(CurrentLevel, new LevelData());
+        }
 
         StartCoroutine(LoadScene(CurrentLevel.scenePath));
     }
 
     public void LevelSelect()
     {
+        if(CurrentLevel != null)
+        {
+            saveProgressEvent.Invoke();
+        }
+
+        CurrentLevel = null;
+
         StartCoroutine(LoadScene(LevelsScene));
     }
 
     public void ExitToMenu()
     {
+        if(CurrentLevel != null)
+        {
+            saveProgressEvent.Invoke();
+        }
+
+        CurrentLevel = null;
+
         StartCoroutine(LoadScene(MenuScene));
     }
 
