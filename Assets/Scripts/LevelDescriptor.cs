@@ -8,4 +8,7 @@ public class LevelDescriptor : ScriptableObject
     public string scenePath;
     public string levelName;
     public Sprite thumbnail;
+
+    // Coins and collectables
+    public int totalCoins;
 }

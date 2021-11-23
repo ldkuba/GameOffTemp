@@ -3,6 +3,11 @@ using System.Collections.Generic;
 using UnityEditor;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.Events;
+
+// args: amount
+[System.Serializable]
+public class CoinCollectedEvent : UnityEvent<int> {}
 
 public class GameManager : MonoBehaviour
 {
@@ -16,7 +21,7 @@ public class GameManager : MonoBehaviour
                 
                 if (m_instance == null)
                 {
-                    Debug.LogError("GameManager is missing!");
+                    throw new System.Exception("GameManager is missing!");
                 }
             }
         
@@ -35,6 +40,8 @@ public class GameManager : MonoBehaviour
         DontDestroyOnLoad(this.gameObject);
 
         m_instance = this;
+
+        coinCollectedEvent = new CoinCollectedEvent();
     }
 
     // ========================================================================
@@ -118,5 +125,9 @@ public class GameManager : MonoBehaviour
             yield return null;
         }
     }
+
+    // ========================== COINS, COLLECTABLES AND SCORE ===============================
+
+    public CoinCollectedEvent coinCollectedEvent;
 
 }
