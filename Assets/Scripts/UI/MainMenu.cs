@@ -17,6 +17,11 @@ public class MainMenu : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        Repaint();
+    }
+
+    private void Repaint()
+    {
         if(GameManager.Instance.PlayerProgress.CurrentLevel != null)
         {
             m_playButton.GetComponentInChildren<Text>().text = "CONTINUE";
@@ -34,6 +39,13 @@ public class MainMenu : MonoBehaviour
     public void OnClickLevels()
     {
         GameManager.Instance.LevelSelect();
+    }
+
+    public void OnClickResetSave()
+    {
+        GameManager.Instance.ResetSaveData();
+
+        Repaint();
     }
 
     public void OnClickQuit()

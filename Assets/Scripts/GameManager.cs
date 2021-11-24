@@ -45,8 +45,8 @@ public class GameManager : MonoBehaviour
 
         m_instance = this;
 
-        // TODO: load from save file if file exists
-        PlayerProgress = new SaveData();
+        // Load from file or create new
+        PlayerProgress = SaveData.LoadSaveFile(m_saveFilename);
 
         coinCollectedEvent = new CoinCollectedEvent();
         saveProgressEvent = new SaveProgressEvent();
@@ -56,6 +56,7 @@ public class GameManager : MonoBehaviour
 
     void Update()
     {
+        // TODO: catch exception on NullPointers so that 0 levels played doesnt mean no save data
         // try{
         //     string saveData = PlayerProgress.ToString();
         //     Debug.Log(saveData);
@@ -80,18 +81,35 @@ public class GameManager : MonoBehaviour
     private string m_levelsScene;
     public string LevelsScene { get { return m_levelsScene; } }
 
+    // ================== SAVE DATA ================================
+
     // Stores the players progess
     public SaveData PlayerProgress { get; private set; }
     public SaveProgressEvent saveProgressEvent;
+
+    // Currently only supports one player profile
+    private const string m_saveFilename = "savegame.trololo";
+
+    private void SavePlayerProgress()
+    {
+        if(CurrentLevel != null)
+        {
+            saveProgressEvent.Invoke();
+            PlayerProgress.SaveToFile(m_saveFilename);
+        }
+    }
+
+    public void ResetSaveData()
+    {
+        PlayerProgress = new SaveData();
+        PlayerProgress.SaveToFile(m_saveFilename);
+    }
 
     // ================== SCENE SWITCHING ========================
 
     public void Play(LevelDescriptor level = null)
     {
-        if(CurrentLevel != null)
-        {
-            saveProgressEvent.Invoke();
-        }
+        SavePlayerProgress();
 
         if(level == null)
         {
@@ -131,10 +149,7 @@ public class GameManager : MonoBehaviour
 
     public void LevelSelect()
     {
-        if(CurrentLevel != null)
-        {
-            saveProgressEvent.Invoke();
-        }
+        SavePlayerProgress();
 
         CurrentLevel = null;
 
@@ -143,10 +158,7 @@ public class GameManager : MonoBehaviour
 
     public void ExitToMenu()
     {
-        if(CurrentLevel != null)
-        {
-            saveProgressEvent.Invoke();
-        }
+        SavePlayerProgress();
 
         CurrentLevel = null;
 
