@@ -45,8 +45,13 @@ public class GameManager : MonoBehaviour
 
         m_instance = this;
 
+        // TODO: load from save file if file exists
+        PlayerProgress = new SaveData();
+
         coinCollectedEvent = new CoinCollectedEvent();
         saveProgressEvent = new SaveProgressEvent();
+
+        Application.targetFrameRate = 60;
     }
 
     void Update()
@@ -83,11 +88,6 @@ public class GameManager : MonoBehaviour
 
     public void Play(LevelDescriptor level = null)
     {
-        if(PlayerProgress == null)
-        {
-            PlayerProgress = new SaveData();
-        }
-
         if(CurrentLevel != null)
         {
             saveProgressEvent.Invoke();

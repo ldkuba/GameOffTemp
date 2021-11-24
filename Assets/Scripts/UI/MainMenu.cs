@@ -17,7 +17,7 @@ public class MainMenu : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        if(GameManager.Instance.PlayerProgress != null)
+        if(GameManager.Instance.PlayerProgress.CurrentLevel != null)
         {
             m_playButton.GetComponentInChildren<Text>().text = "CONTINUE";
         }else
