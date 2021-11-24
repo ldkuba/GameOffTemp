@@ -29,6 +29,15 @@ public class LevelsMenu : MonoBehaviour
             levelListItem.transform.Find("Thumbnail").GetComponent<Image>().sprite = level.thumbnail;
             levelListItem.transform.Find("LevelName").GetComponentInChildren<Text>().text = level.levelName;
 
+            if(!GameManager.Instance.PlayerProgress.levelData.ContainsKey(level))
+            {
+                levelListItem.transform.Find("LevelName").GetComponent<Button>().interactable = false;
+
+                // dim item to display as 'unavailable'
+                levelListItem.transform.Find("LevelName").GetComponentInChildren<Text>().color *= 0.6f;
+                levelListItem.transform.Find("Thumbnail").GetComponent<Image>().color *= 0.6f;
+            }
+
             levelListItem.transform.Find("LevelName").GetComponent<Button>().onClick.AddListener(() => {
                 OnLevelSelect(level);
             });
