@@ -36,6 +36,13 @@ public class LevelsMenu : MonoBehaviour
                 // dim item to display as 'unavailable'
                 levelListItem.transform.Find("LevelName").GetComponentInChildren<Text>().color *= 0.6f;
                 levelListItem.transform.Find("Thumbnail").GetComponent<Image>().color *= 0.6f;
+                levelListItem.transform.Find("CollectibleStatus/CoinImage").GetComponent<Image>().color *= 0.6f;
+                levelListItem.transform.Find("CollectibleStatus/CoinText").GetComponent<Text>().color *= 0.6f;
+                levelListItem.transform.Find("CollectibleStatus/CoinText").GetComponent<Text>().text = "0/" + level.totalCoins;
+            }else
+            {
+                int collectedCoins = GameManager.Instance.PlayerProgress.levelData[level].collectedCoins.Count;
+                levelListItem.transform.Find("CollectibleStatus/CoinText").GetComponent<Text>().text = collectedCoins + "/" + level.totalCoins;
             }
 
             levelListItem.transform.Find("LevelName").GetComponent<Button>().onClick.AddListener(() => {

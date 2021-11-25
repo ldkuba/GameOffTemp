@@ -15,4 +15,4 @@ MonoBehaviour:
   scenePath: MovementSample
   levelName: Movement Sample
   thumbnail: {fileID: 0}
-  totalCoins: 5
+  totalCoins: 4
