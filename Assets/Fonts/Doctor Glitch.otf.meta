@@ -1,3 +1,21 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:149c469268b30096e33a6c22b9859b6e2bd21df337217f36e49397e61e7d2ea8
-size 478
+fileFormatVersion: 2
+guid: e0c653551033b1a498206d202b9288a8
+TrueTypeFontImporter:
+  externalObjects: {}
+  serializedVersion: 4
+  fontSize: 16
+  forceTextureCase: -2
+  characterSpacing: 0
+  characterPadding: 1
+  includeFontData: 1
+  fontNames:
+  - Doctor Glitch
+  fallbackFontReferences: []
+  customCharacters: 
+  fontRenderingMode: 0
+  ascentCalculationMode: 1
+  useLegacyBoundsCalculation: 0
+  shouldRoundAdvanceValue: 1
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
