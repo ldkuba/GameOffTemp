@@ -14,9 +14,14 @@ public class LevelData
     // store reference to checkpoints as reference to position in CheckpointManager
     public int lastCheckpoint = -1;
 
+    public LevelData()
+    {
+        collectedCoins = new List<int>();
+    }
+
     public override string ToString()
     {
-        return "Last Checkpoint: " + lastCheckpoint;
+        return "Last Checkpoint: " + lastCheckpoint + " | Collected coins: " + collectedCoins.Count;
     } 
 }
 

@@ -9,7 +9,7 @@ This asset is a description of your level and contains info about:
 - Scene path (has to be the same as the scene asset filename)
 - Level name (the displayed name of the level)
 - Thumbnail
-- Total number of coins in the level (this is temporary and will be removed in the next commit but you can set it for fun)
+- Total number of coins in the level (set this to the same number as the amount of coins in your level)
 
 ## Step 3: Add LevelDescriptor to level list
 Open Assets/MainMenu scene and select the `GameManager`. Add a new entry in `Levels` and drag and drop your LevelDescriptor into the slot
@@ -30,7 +30,14 @@ Add `Assets/Prefabs/Checkpoints/CheckpointManager` to your scene. Drag and drop 
 
 Add `Assets/Prefabs/Checkpoints/Checkpoint` objects to the scene under the CheckpointManager object. Position them in your scene. Then add them to the `Checkpoints` List in the `CheckpointManager` __IN ORDER__. A checkpoint will only be triggered if it has a higher index in the List then the current active checkpoint (we can change this behaviour easily, i just thought it would make sense)
 
+## Step 6: Add Coins
+Add `Assets/Prefabs/Collectibles/CollectibleManager` to your scene. Drag and drop the `CoinCounter` object you added in step 4 in the `CoinCollectedEvent` field in the inspector and set the Callback to `CoinCounter.AddCoins`
+
+Place the `Assets/Prefabs/Collectibles/Coin` objects in your scene. Drag and drop all coin objects in the scene to the `Coins` List in the `Collectible Manager`
+
+__IMPORTANT__: The amount of coins registered in the `CollectibleManager` has to be the same as the total amount of coins declared in the `LevelDescriptor`. I'm sorry i can't think of a cleaner implementation. I'm open to suggestions. On the bright side you will get a Debug Error in the console(in runtime) when loading a level where these values don't match.
+
 ## Important information
 Launch the game from the MainMenu scene. I know it's annoying. You can launch the game from your level but some things might crash. It shouldn't affect your local scripts in the level though, only the stuff that uses GameManager.Instance
 
-I will be adding more stuff here as we go. Most notably setting up the `CoinManager` it's done
+All these things are shown in `Assets/Scenes/Levels/MovementSample` so take a look there if you want an example

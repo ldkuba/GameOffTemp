@@ -6,10 +6,6 @@ using UnityEngine.SceneManagement;
 using UnityEngine.Events;
 using System;
 
-// args: amount
-[System.Serializable]
-public class CoinCollectedEvent : UnityEvent<int> {}
-
 [System.Serializable]
 public class SaveProgressEvent : UnityEvent {}
 
@@ -48,7 +44,6 @@ public class GameManager : MonoBehaviour
         // Load from file or create new
         PlayerProgress = SaveData.LoadSaveFile(m_saveFilename);
 
-        coinCollectedEvent = new CoinCollectedEvent();
         saveProgressEvent = new SaveProgressEvent();
 
         Application.targetFrameRate = 60;
@@ -57,13 +52,13 @@ public class GameManager : MonoBehaviour
     void Update()
     {
         // TODO: catch exception on NullPointers so that 0 levels played doesnt mean no save data
-        // try{
-        //     string saveData = PlayerProgress.ToString();
-        //     Debug.Log(saveData);
-        // }catch(Exception)
-        // {
-        //     Debug.Log("No save data available");
-        // }
+        try{
+            string saveData = PlayerProgress.ToString();
+            Debug.Log(saveData);
+        }catch(Exception)
+        {
+            Debug.Log("No save data available");
+        }
     }
 
     // ========================================================================
@@ -177,9 +172,4 @@ public class GameManager : MonoBehaviour
             yield return null;
         }
     }
-
-    // ========================== COINS, COLLECTABLES AND SCORE ===============================
-
-    public CoinCollectedEvent coinCollectedEvent;
-
 }
