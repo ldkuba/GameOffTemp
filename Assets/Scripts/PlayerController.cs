@@ -30,6 +30,14 @@ public class PlayerController : MonoBehaviour
         playerCamera.transform.position = transform.position + cameraOffset;
     }
 
+    private void OnTriggerEnter2D(Collider2D other)
+    {
+        if (other.gameObject.CompareTag("coin")) {
+
+            Destroy(other.gameObject);
+        }
+    }
+
     public void FixedUpdate()
     {
         controller.Move(m_horizontalMove * Time.fixedDeltaTime, false, m_jump);
