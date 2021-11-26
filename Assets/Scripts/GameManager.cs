@@ -51,14 +51,14 @@ public class GameManager : MonoBehaviour
 
     void Update()
     {
-        // TODO: catch exception on NullPointers so that 0 levels played doesnt mean no save data
-        try{
-            string saveData = PlayerProgress.ToString();
-            Debug.Log(saveData);
-        }catch(Exception)
-        {
-            Debug.Log("No save data available");
-        }
+        // // TODO: catch exception on NullPointers so that 0 levels played doesnt mean no save data
+        // try{
+        //     string saveData = PlayerProgress.ToString();
+        //     Debug.Log(saveData);
+        // }catch(Exception)
+        // {
+        //     Debug.Log("No save data available");
+        // }
     }
 
     // ========================================================================
@@ -101,6 +101,26 @@ public class GameManager : MonoBehaviour
     }
 
     // ================== SCENE SWITCHING ========================
+
+    public void PlayNext()
+    {
+        if(CurrentLevel == null)
+        {
+            Play();
+        }else
+        {
+            int nextLevelIndex = m_levels.IndexOf(CurrentLevel) + 1;
+            if(nextLevelIndex >= m_levels.Count)
+            {
+                // Congratulations you won!
+                // TODO: some outro scene
+                ExitToMenu();
+                return;
+            }
+
+            Play(m_levels[nextLevelIndex]);
+        }
+    }
 
     public void Play(LevelDescriptor level = null)
     {

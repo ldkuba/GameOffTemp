@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
 
+// args: index
 public class CheckpointTriggerEvent : UnityEvent<int> {}
 
 public class Checkpoint : MonoBehaviour
@@ -14,6 +15,7 @@ public class Checkpoint : MonoBehaviour
     [SerializeField, ColorUsage(true, true)]
     private Color m_enabledColor;
 
+    public bool isFinalCheckpoint;
 
     private int m_index;
     private bool m_active;

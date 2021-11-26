@@ -20,8 +20,6 @@ public class CoinCounter : MonoBehaviour
 
     public void AddCoins(int count)
     {
-        Debug.Log("Adding coin");
-
         m_coinsCollected += count;
         SetText();
     }

@@ -26,9 +26,11 @@ you probably don't have to do it but i have my canvas rendering mode set to `Scr
 Drag and drop `Assets/Prefabs/UI/PauseMenu` and `Assets/Prefabs/UI/CoinCounter` onto the Canvas object
 
 ## Step 5: Add Checkpoints
-Add `Assets/Prefabs/Checkpoints/CheckpointManager` to your scene. Drag and drop the Player GameObject into the `Player` field in the inspector.
+Add `Assets/Prefabs/Checkpoints/CheckpointManager` to your scene. Drag and drop the Player GameObject into the `Player` field in the inspector
 
 Add `Assets/Prefabs/Checkpoints/Checkpoint` objects to the scene under the CheckpointManager object. Position them in your scene. Then add them to the `Checkpoints` List in the `CheckpointManager` __IN ORDER__. A checkpoint will only be triggered if it has a higher index in the List then the current active checkpoint (we can change this behaviour easily, i just thought it would make sense)
+
+You can set the `IsFinalCheckpoint` field on a `Checkpoint` which will make the player transition to the next level if the checkpoint is triggered
 
 ## Step 6: Add Coins
 Add `Assets/Prefabs/Collectibles/CollectibleManager` to your scene. Drag and drop the `CoinCounter` object you added in step 4 in the `CoinCollectedEvent` field in the inspector and set the Callback to `CoinCounter.AddCoins`

@@ -35,7 +35,6 @@ public class CollectiblesManager : MonoBehaviour
         m_coins[coinIndex].SetCollected(true);
 
         // Pick up one coin, TODO: extend callback to pass amount
-        Debug.Log("Invoking coin collected event");
         coinCollectedEvent.Invoke(1);
     }
 
