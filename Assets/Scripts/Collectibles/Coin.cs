@@ -12,9 +12,8 @@ public class Coin : MonoBehaviour
 {
     private Action<int> m_coinPickupCallback;
 
-    [SerializeField]
-    private int rotateSpeed;
-
+    [SerializeField] private int rotateSpeed;
+    [SerializeField] private AudioClip coinPickupSound;
     private int m_index;
     public int GetIndex() { return m_index; }
     private bool m_collected;
@@ -48,6 +47,8 @@ public class Coin : MonoBehaviour
         if(collision.gameObject.tag == "Player")
         {
             m_coinPickupCallback(m_index);
+            AudioSource.PlayClipAtPoint(coinPickupSound, position: transform.position);
+
         }     
     }
 }
