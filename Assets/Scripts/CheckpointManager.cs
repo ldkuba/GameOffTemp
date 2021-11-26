@@ -13,10 +13,14 @@ public class CheckpointManager : MonoBehaviour
 
     private int lastCheckpoint;
 
+    private bool m_isSwitchingScene;
+
     void Start()
     {
         // Add saving listener
         GameManager.Instance.saveProgressEvent.AddListener(SaveCheckpointProgress);
+
+        m_isSwitchingScene = false;
 
         // Set lastCheckpoint from player save data or start from 0
         lastCheckpoint = GameManager.Instance.PlayerProgress.levelData[GameManager.Instance.CurrentLevel].lastCheckpoint;
@@ -38,10 +42,23 @@ public class CheckpointManager : MonoBehaviour
 
     public void TriggerCheckpoint(int newCheckpoint)
     {
+        if(m_isSwitchingScene)
+            return;
+
         // Replace last checkpoint with new checkpoint if it has a larger index then the previous one
         // Not sure if thats what we want, maybe make different kinds of behavious like alwaysReplace, replaceIncremental, etc.
         if(newCheckpoint > lastCheckpoint)
         {
+            // Check if this is the final checkpoint
+            if(m_checkpoints[newCheckpoint].isFinalCheckpoint)
+            {
+                lastCheckpoint = 0;
+                m_isSwitchingScene = true;
+                
+                GameManager.Instance.PlayNext();
+                return;
+            }
+
             m_checkpoints[lastCheckpoint].SetActive(false);
             m_checkpoints[newCheckpoint].SetActive(true);
 
