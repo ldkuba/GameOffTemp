@@ -14,4 +14,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Levels/MovementSample.unity
     guid: 9fc0d4010bbf28b4594072e72b8655ab
+  - enabled: 1
+    path: Assets/Scenes/Levels/LevelDontFallMakOne.unity
+    guid: 47cfb153782157b4bb2f7d7e2eebdb32
   m_configObjects: {}

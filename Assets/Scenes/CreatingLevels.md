@@ -4,7 +4,7 @@
 Self explanatory. I make a folder called `Levels` to distinguish "level scenes" from main menu and other UI scenes
 
 ## Step 2: Create LevelDescriptor
-Right click in the asset browset > Create > Level > LevelDescriptor
+Right click in the asset browser > Create > Level > LevelDescriptor
 This asset is a description of your level and contains info about:
 - Scene path (has to be the same as the scene asset filename)
 - Level name (the displayed name of the level)

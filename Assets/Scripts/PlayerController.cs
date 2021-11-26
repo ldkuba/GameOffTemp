@@ -12,7 +12,8 @@ public class PlayerController : MonoBehaviour
 
     private float m_horizontalMove;
     private bool m_jump;
-
+    
+    
     public void Start()
     {
         cameraOffset = new Vector3(0, 0, -10.0f);
@@ -28,6 +29,15 @@ public class PlayerController : MonoBehaviour
         }
 
         playerCamera.transform.position = transform.position + cameraOffset;
+    }
+
+    private void OnTriggerEnter2D(Collider2D other)
+    {
+        if (other.gameObject.CompareTag("coin")) {
+            
+            
+            Destroy(other.gameObject);
+        }
     }
 
     public void FixedUpdate()
