@@ -48,7 +48,6 @@ public class Coin : MonoBehaviour
         {
             m_coinPickupCallback(m_index);
             AudioSource.PlayClipAtPoint(coinPickupSound, position: transform.position);
-
         }     
     }
 }
