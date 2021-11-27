@@ -43,3 +43,8 @@ __IMPORTANT__: The amount of coins registered in the `CollectibleManager` has to
 Launch the game from the MainMenu scene. I know it's annoying. You can launch the game from your level but some things might crash. It shouldn't affect your local scripts in the level though, only the stuff that uses GameManager.Instance
 
 All these things are shown in `Assets/Scenes/Levels/MovementSample` so take a look there if you want an example
+
+## Additional information 
+Scene needs the player prefab manually added at the start location in the scene as well as the manager.
+Scene must be added to build to be loaded (error warning tells you if this is the issue)
+Must have more than one checkpoint such that teh final checkpoint triggers level transition

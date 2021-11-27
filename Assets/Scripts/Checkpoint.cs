@@ -31,7 +31,7 @@ public class Checkpoint : MonoBehaviour
         SetColour(active);
     }
 
-    public void SetActive(bool active)
+    public void SetCheckpointToActive(bool active)
     {
         m_active = active;
         AudioSource.PlayClipAtPoint(m_activeCheckClip, new Vector3(0, 0, 0));
@@ -48,7 +48,14 @@ public class Checkpoint : MonoBehaviour
     {
         if(collision.gameObject.tag == "Player")
         {
-            checkpointTriggerEvent.Invoke(m_index);
+            if (checkpointTriggerEvent != null)
+            {
+                Debug.Log("Player collided with this checkpoint: " + this.name + " calling event ");
+                checkpointTriggerEvent.Invoke(m_index);
+            } else
+            {
+                Debug.Log("checkpointTriggerEvent is = null");
+            }
         }     
     }
 }

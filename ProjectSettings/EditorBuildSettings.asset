@@ -23,4 +23,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/VictoryScene.unity
     guid: 5cfffb85e6982e54fa6ed17c6f58896e
+  - enabled: 1
+    path: Assets/Scenes/Levels/SukiTutorial0.unity
+    guid: 43373d4dca042444da75e1826fd56a38
   m_configObjects: {}

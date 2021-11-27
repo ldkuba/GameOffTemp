@@ -59,8 +59,8 @@ public class CheckpointManager : MonoBehaviour
                 return;
             }
 
-            m_checkpoints[lastCheckpoint].SetActive(false);
-            m_checkpoints[newCheckpoint].SetActive(true);
+            m_checkpoints[lastCheckpoint].SetCheckpointToActive(false);
+            m_checkpoints[newCheckpoint].SetCheckpointToActive(true);
 
             lastCheckpoint = newCheckpoint;
         }

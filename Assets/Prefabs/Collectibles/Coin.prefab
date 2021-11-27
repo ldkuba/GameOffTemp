@@ -123,3 +123,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rotateSpeed: 1
+  coinPickupSound: {fileID: 8300000, guid: a2744cd642ebe944a8ad06524024a647, type: 3}

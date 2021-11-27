@@ -36,6 +36,11 @@ public class PlayerController : MonoBehaviour
         m_animator = GetComponent<Animator>();
 
         controller.jumpedAction = OnJump;
+        //if camera is not set in inspector find the main camera in the scene and assume this is the correct one
+        if (playerCamera!)
+        {
+            playerCamera = Camera.main;
+        }
     }
 
     public void Update()
