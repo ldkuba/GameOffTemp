@@ -31,17 +31,16 @@ public class PlayerController : MonoBehaviour
         playerCamera.transform.position = transform.position + cameraOffset;
     }
 
-    private void OnTriggerEnter2D(Collider2D other)
-    {
-        if (other.gameObject.CompareTag("coin")) {
-            
-            
-            Destroy(other.gameObject);
-        }
-    }
-
     public void FixedUpdate()
     {
+        if(controller.IsGrounded())
+        {
+            GetComponent<CircleCollider2D>().sharedMaterial.friction = 0.4f;
+        }else
+        {
+            GetComponent<CircleCollider2D>().sharedMaterial.friction = 0.0f;
+        }
+
         controller.Move(m_horizontalMove * Time.fixedDeltaTime, false, m_jump);
         m_jump = false;
     }
