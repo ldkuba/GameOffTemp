@@ -4644,6 +4644,30 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 444340588, guid: 1d04c7c929b6b9343848bdf32c16365c, type: 3}
+      propertyPath: m_SpriteTilingProperty.border.w
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 444340588, guid: 1d04c7c929b6b9343848bdf32c16365c, type: 3}
+      propertyPath: m_SpriteTilingProperty.border.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 444340588, guid: 1d04c7c929b6b9343848bdf32c16365c, type: 3}
+      propertyPath: m_SpriteTilingProperty.border.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 444340588, guid: 1d04c7c929b6b9343848bdf32c16365c, type: 3}
+      propertyPath: m_SpriteTilingProperty.border.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 444340588, guid: 1d04c7c929b6b9343848bdf32c16365c, type: 3}
+      propertyPath: m_SpriteTilingProperty.oldSize.x
+      value: 0.48
+      objectReference: {fileID: 0}
+    - target: {fileID: 444340588, guid: 1d04c7c929b6b9343848bdf32c16365c, type: 3}
+      propertyPath: m_SpriteTilingProperty.oldSize.y
+      value: 0.48
+      objectReference: {fileID: 0}
     - target: {fileID: 2379093703596559364, guid: 1d04c7c929b6b9343848bdf32c16365c, type: 3}
       propertyPath: m_JumpForce
       value: 800
@@ -4652,10 +4676,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player
       objectReference: {fileID: 0}
-    - target: {fileID: 6305364565721764857, guid: 1d04c7c929b6b9343848bdf32c16365c, type: 3}
-      propertyPath: m_Sprite
-      value: 
-      objectReference: {fileID: 21300000, guid: 5f117916e1fe98745b0a1c429382c094, type: 3}
     - target: {fileID: 6305364565721764857, guid: 1d04c7c929b6b9343848bdf32c16365c, type: 3}
       propertyPath: m_SortingLayer
       value: 2
@@ -4683,14 +4703,6 @@ PrefabInstance:
     - target: {fileID: 6305364565721764862, guid: 1d04c7c929b6b9343848bdf32c16365c, type: 3}
       propertyPath: m_RootOrder
       value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 6305364565721764862, guid: 1d04c7c929b6b9343848bdf32c16365c, type: 3}
-      propertyPath: m_LocalScale.x
-      value: 0.8
-      objectReference: {fileID: 0}
-    - target: {fileID: 6305364565721764862, guid: 1d04c7c929b6b9343848bdf32c16365c, type: 3}
-      propertyPath: m_LocalScale.y
-      value: 1.8
       objectReference: {fileID: 0}
     - target: {fileID: 6305364565721764862, guid: 1d04c7c929b6b9343848bdf32c16365c, type: 3}
       propertyPath: m_LocalPosition.x
@@ -4731,14 +4743,6 @@ PrefabInstance:
     - target: {fileID: 6305364565721764863, guid: 1d04c7c929b6b9343848bdf32c16365c, type: 3}
       propertyPath: m_Offset.y
       value: -0.011047268
-      objectReference: {fileID: 0}
-    - target: {fileID: 6305364565771097103, guid: 1d04c7c929b6b9343848bdf32c16365c, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: -0.5009
-      objectReference: {fileID: 0}
-    - target: {fileID: 6305364566502377487, guid: 1d04c7c929b6b9343848bdf32c16365c, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 6455702383721138858, guid: 1d04c7c929b6b9343848bdf32c16365c, type: 3}
       propertyPath: playerCamera
