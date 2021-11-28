@@ -13,16 +13,35 @@ public class PlayerController : MonoBehaviour
     private float m_horizontalMove;
     private bool m_jump;
     
+    private Animator m_animator;
     
     public void Start()
     {
         cameraOffset = new Vector3(0, 0, -10.0f);
         controller = GetComponent<CharacterController2D>();
+    
+        m_animator = GetComponent<Animator>();
     }
 
     public void Update()
     {
         m_horizontalMove = Input.GetAxis("Horizontal") * runSpeed;
+
+        if(Input.GetButtonDown("Attack"))
+        {
+            m_animator.SetInteger("ActionState", 2);
+            // TODO: implement attack
+        }else
+        {
+            if(Mathf.Abs(m_horizontalMove) > 0)
+            {
+                m_animator.SetInteger("ActionState", 1);
+            }else
+            {
+                m_animator.SetInteger("ActionState", 0);
+            }
+        }
+        
         if(Input.GetButtonDown("Jump"))
         {
             m_jump = true;
