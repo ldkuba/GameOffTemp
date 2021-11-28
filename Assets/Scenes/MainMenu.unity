@@ -638,9 +638,6 @@ MonoBehaviour:
   saveProgressEvent:
     m_PersistentCalls:
       m_Calls: []
-  coinCollectedEvent:
-    m_PersistentCalls:
-      m_Calls: []
 --- !u!4 &464929576
 Transform:
   m_ObjectHideFlags: 0
