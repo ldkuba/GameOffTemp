@@ -12,6 +12,8 @@ public class PlayerController : MonoBehaviour
 
     private float m_horizontalMove;
     private bool m_jump;
+
+    public bool IsHitting = false;
     
     private Animator m_animator;
     
@@ -48,6 +50,16 @@ public class PlayerController : MonoBehaviour
         }
 
         playerCamera.transform.position = transform.position + cameraOffset;
+    }
+
+    public void OnHitStart()
+    {
+        IsHitting = true;
+    }
+
+    public void OnHitStop()
+    {
+        IsHitting = false;
     }
 
     public void FixedUpdate()
