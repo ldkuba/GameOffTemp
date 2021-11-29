@@ -7,6 +7,7 @@ TagManager:
   - Enemy
   - VertObstacle
   - coin
+  - PlayerHit
   layers:
   - Default
   - TransparentFX
