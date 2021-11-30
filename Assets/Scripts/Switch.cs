@@ -49,6 +49,7 @@ public class Switch : MonoBehaviour
         switchEvent.Invoke(m_active);
 
         SetColor();
+        GetComponent<AudioSource>().Play();
 
         m_isTurning = true;
     }
