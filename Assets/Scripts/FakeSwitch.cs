@@ -23,8 +23,7 @@ public class FakeSwitch : MonoBehaviour
         if(collision.gameObject.tag == "PlayerHit")
         {
             PlayerController player = collision.gameObject.GetComponentInParent<PlayerController>() as PlayerController;
-            
-            Debug.Log(player.IsHitting);
+
             if(player.IsHitting)
             {
                 AudioSource audioSource = GetComponent<AudioSource>() as AudioSource;
