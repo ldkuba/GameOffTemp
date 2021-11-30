@@ -76,6 +76,10 @@ public class GameManager : MonoBehaviour
     private string m_levelsScene;
     public string LevelsScene { get { return m_levelsScene; } }
 
+    [SerializeField] 
+    private string m_victoryScene;
+    public string VictoryScene { get { return m_victoryScene; } }
+
     // ================== SAVE DATA ================================
 
     // Stores the players progess
@@ -114,7 +118,8 @@ public class GameManager : MonoBehaviour
             {
                 // Congratulations you won!
                 // TODO: some outro scene
-                ExitToMenu();
+                LoadScene(VictoryScene);
+                // ExitToMenu();
                 return;
             }
 
