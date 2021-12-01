@@ -14,7 +14,8 @@ public class Checkpoint : MonoBehaviour
     private Color m_disabledColor;
     [SerializeField, ColorUsage(true, true)]
     private Color m_enabledColor;
-
+    [SerializeField]
+    private AudioClip m_activeCheckClip;
     public bool isFinalCheckpoint;
 
     private int m_index;
@@ -33,7 +34,7 @@ public class Checkpoint : MonoBehaviour
     public void SetActive(bool active)
     {
         m_active = active;
-
+        AudioSource.PlayClipAtPoint(m_activeCheckClip, new Vector3(0, 0, 0));
         SetColour(active);
     }
 
