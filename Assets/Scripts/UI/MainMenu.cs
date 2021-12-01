@@ -14,6 +14,9 @@ public class MainMenu : MonoBehaviour
     [SerializeField]
     private Button m_quitButton;
 
+    [SerializeField]
+    private AudioClip m_pressbuttonclip;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -33,16 +36,19 @@ public class MainMenu : MonoBehaviour
 
     public void OnClickPlay()
     {
+        AudioSource.PlayClipAtPoint(m_pressbuttonclip, transform.position);
         GameManager.Instance.Play();
     }
 
     public void OnClickLevels()
     {
+        AudioSource.PlayClipAtPoint(m_pressbuttonclip, transform.position);
         GameManager.Instance.LevelSelect();
     }
 
     public void OnClickResetSave()
     {
+        AudioSource.PlayClipAtPoint(m_pressbuttonclip, transform.position);
         GameManager.Instance.ResetSaveData();
 
         Repaint();
@@ -50,6 +56,7 @@ public class MainMenu : MonoBehaviour
 
     public void OnClickQuit()
     {
+        AudioSource.PlayClipAtPoint(m_pressbuttonclip, transform.position);
         Application.Quit();
     }
 }
