@@ -50,11 +50,10 @@ public class Checkpoint : MonoBehaviour
         {
             if (checkpointTriggerEvent != null)
             {
-                Debug.Log("Player collided with this checkpoint: " + this.name + " calling event ");
                 checkpointTriggerEvent.Invoke(m_index);
             } else
             {
-                Debug.Log("checkpointTriggerEvent is = null");
+                Debug.Log("checkpointTriggerEvent is null");
             }
         }     
     }
