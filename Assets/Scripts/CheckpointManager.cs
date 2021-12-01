@@ -67,7 +67,7 @@ public class CheckpointManager : MonoBehaviour
     }
 
     private void MoveToCheckpoint(int checkpoint)
-    {
+    { 
         m_player.transform.position = m_checkpoints[lastCheckpoint].transform.position;
     }
 
