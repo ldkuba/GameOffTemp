@@ -27,10 +27,10 @@ public class MainMenu : MonoBehaviour
     {
         if(GameManager.Instance.PlayerProgress.CurrentLevel != null)
         {
-            m_playButton.GetComponentInChildren<Text>().text = "CONTINUE";
+            m_playButton.GetComponentInChildren<Text>().text = "Continue";
         }else
         {
-            m_playButton.GetComponentInChildren<Text>().text = "PLAY";
+            m_playButton.GetComponentInChildren<Text>().text = "Play";
         }
     }
 
