@@ -1,10 +1,19 @@
 * text=auto
 
-# Unity files
-*.meta -text -merge=unityamlmerge filter=lfs diff=lfs
-*.unity -text -merge=unityamlmerge filter=lfs diff=lfs
-*.asset -text -merge=unityamlmerge filter=lfs diff=lfs
-*.prefab -text -merge=unityamlmerge filter=lfs diff=lfs
+# Unity YAML
+*.mat merge=unityyamlmerge eol=lf
+*.anim merge=unityyamlmerge eol=lf
+*.unity merge=unityyamlmerge eol=lf
+*.prefab merge=unityyamlmerge eol=lf
+*.physicMaterial2D merge=unityyamlmerge eol=lf
+*.physicMaterial merge=unityyamlmerge eol=lf
+*.asset merge=unityyamlmerge eol=lf
+*.meta merge=unityyamlmerge eol=lf
+*.controller merge=unityyamlmerge eol=lf
+
+# Unity LFS
+*.cubemap       filter=lfs diff=lfs merge=lfs -text
+*.unitypackage  filter=lfs diff=lfs merge=lfs -text
 
 # Image formats
 *.psd filter=lfs diff=lfs merge=lfs -text
