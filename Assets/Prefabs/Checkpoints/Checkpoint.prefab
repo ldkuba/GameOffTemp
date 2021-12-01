@@ -129,5 +129,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_disabledColor: {r: 4.237095, g: 2.5954978, b: 0, a: 1}
   m_enabledColor: {r: 0, g: 4.237095, b: 0.044367485, a: 1}
-  m_activateClip: {fileID: 8300000, guid: 39b570703c1d80744885bce1af8aa530, type: 3}
+  m_activeCheckClip: {fileID: 8300000, guid: 39b570703c1d80744885bce1af8aa530, type: 3}
   isFinalCheckpoint: 0
