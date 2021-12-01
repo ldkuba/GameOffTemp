@@ -118,7 +118,10 @@ public class GameManager : MonoBehaviour
             {
                 // Congratulations you won!
                 // TODO: some outro scene
-                LoadScene(VictoryScene);
+                SavePlayerProgress();
+                CurrentLevel = null;
+                
+                StartCoroutine(LoadScene(VictoryScene));
                 // ExitToMenu();
                 return;
             }
