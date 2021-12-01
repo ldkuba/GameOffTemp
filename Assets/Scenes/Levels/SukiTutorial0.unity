@@ -212,7 +212,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 490080283953753048, guid: 39c89c26235ae8444a610efa20138d91, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -7.23
+      value: -6.62
       objectReference: {fileID: 0}
     - target: {fileID: 490080283953753048, guid: 39c89c26235ae8444a610efa20138d91, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -800,7 +800,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 467190184}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: -2, z: -10}
+  m_LocalPosition: {x: -6.34, y: -9.26, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -854,12 +854,20 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6305364565721764862, guid: 1d04c7c929b6b9343848bdf32c16365c, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.12
+      objectReference: {fileID: 0}
+    - target: {fileID: 6305364565721764862, guid: 1d04c7c929b6b9343848bdf32c16365c, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.12
+      objectReference: {fileID: 0}
+    - target: {fileID: 6305364565721764862, guid: 1d04c7c929b6b9343848bdf32c16365c, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -6.22
+      value: -6.59
       objectReference: {fileID: 0}
     - target: {fileID: 6305364565721764862, guid: 1d04c7c929b6b9343848bdf32c16365c, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -9.9
+      value: -9.42
       objectReference: {fileID: 0}
     - target: {fileID: 6305364565721764862, guid: 1d04c7c929b6b9343848bdf32c16365c, type: 3}
       propertyPath: m_LocalPosition.z
@@ -980,7 +988,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 526761642}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 11}
+  m_LocalPosition: {x: 0, y: 0, z: 24.17}
   m_LocalScale: {x: 2.427951, y: 2.890415, z: 0}
   m_Children: []
   m_Father: {fileID: 0}
@@ -1884,7 +1892,6 @@ GameObject:
   - component: {fileID: 1501482844}
   - component: {fileID: 1501482846}
   - component: {fileID: 1501482845}
-  - component: {fileID: 1501482848}
   - component: {fileID: 1501482847}
   m_Layer: 6
   m_Name: Press space to jump collider
@@ -2071,18 +2078,6 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 4.8927317, y: 0.64337826}
   m_EdgeRadius: 0
---- !u!114 &1501482848
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1501482843}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 51acb10c94557a04a825f78f5802d931, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &1588230817
 GameObject:
   m_ObjectHideFlags: 0
@@ -2584,11 +2579,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 490080283953753048, guid: 39c89c26235ae8444a610efa20138d91, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: -11.99
+      value: -12.38
       objectReference: {fileID: 0}
     - target: {fileID: 490080283953753048, guid: 39c89c26235ae8444a610efa20138d91, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -18.3
+      value: -16.95
       objectReference: {fileID: 0}
     - target: {fileID: 490080283953753048, guid: 39c89c26235ae8444a610efa20138d91, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -2608,7 +2603,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 490080283953753051, guid: 39c89c26235ae8444a610efa20138d91, type: 3}
       propertyPath: m_Enabled
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 490080283953753055, guid: 39c89c26235ae8444a610efa20138d91, type: 3}
       propertyPath: m_Name
@@ -2638,7 +2633,6 @@ GameObject:
   - component: {fileID: 1802858241}
   - component: {fileID: 1802858245}
   - component: {fileID: 1802858244}
-  - component: {fileID: 1802858243}
   - component: {fileID: 1802858242}
   m_Layer: 6
   m_Name: Level 0 no collider
@@ -2692,18 +2686,6 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 2, y: 0.5}
   m_EdgeRadius: 0
---- !u!114 &1802858243
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1802858240}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 51acb10c94557a04a825f78f5802d931, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &1802858244
 MonoBehaviour:
   m_ObjectHideFlags: 0
