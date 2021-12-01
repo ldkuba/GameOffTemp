@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System;
+using UnityEngine;
 using UnityEngine.Events;
 
 public class CharacterController2D : MonoBehaviour
@@ -22,6 +23,11 @@ public class CharacterController2D : MonoBehaviour
 
     private bool m_wasCrouching = false;
 
+    private bool m_justJumped = false;
+
+    public Action jumpedAction;
+    public Action landAction;
+
     private void Awake()
     {
         m_Rigidbody2D = GetComponent<Rigidbody2D>();
@@ -39,9 +45,16 @@ public class CharacterController2D : MonoBehaviour
         {
             if (colliders[i].gameObject != gameObject)
             {
-                m_Grounded = true;
-                //if (!wasGrounded)
-                    // Landing event invoked
+                // Delay check by one frame after jumping
+                if(m_justJumped)
+                {
+                    m_justJumped = false;
+                }else
+                {
+                    m_Grounded = true;
+                    // if (!wasGrounded)
+                        // Land event
+                }
             }
         }
     }
@@ -116,6 +129,10 @@ public class CharacterController2D : MonoBehaviour
             // Add a vertical force to the player.
             m_Grounded = false;
             m_Rigidbody2D.AddForce(new Vector2(0f, m_JumpForce));
+        
+            m_justJumped = true;
+
+            jumpedAction();
         }
     }
 

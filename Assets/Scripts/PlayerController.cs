@@ -13,9 +13,20 @@ public class PlayerController : MonoBehaviour
     private float m_horizontalMove;
     private bool m_jump;
 
+    [HideInInspector]
     public bool IsHitting = false;
+
+    // SOUNDS
+    [SerializeField]
+    private AudioSource m_walkAudio;
+    [SerializeField]
+    private AudioSource m_jumpAudio;
+    [SerializeField]
+    private AudioSource m_attackAudio;
     
     private Animator m_animator;
+
+    private AudioSource m_audioSource;
     
     public void Start()
     {
@@ -23,6 +34,8 @@ public class PlayerController : MonoBehaviour
         controller = GetComponent<CharacterController2D>();
     
         m_animator = GetComponent<Animator>();
+
+        controller.jumpedAction = OnJump;
     }
 
     public void Update()
@@ -31,16 +44,27 @@ public class PlayerController : MonoBehaviour
 
         if(Input.GetButtonDown("Attack"))
         {
-            m_animator.SetInteger("ActionState", 2);
-            // TODO: implement attack
+            if(controller.IsGrounded())
+                m_animator.SetInteger("ActionState", 2);
         }else
         {
-            if(Mathf.Abs(m_horizontalMove) > 0)
+            if(controller.IsGrounded())
             {
-                m_animator.SetInteger("ActionState", 1);
+                if(Mathf.Abs(m_horizontalMove) > 0)
+                {
+                
+                    m_animator.SetInteger("ActionState", 1);
+                    if(!m_walkAudio.isPlaying)
+                     m_walkAudio.Play();
+                }else
+                {
+                    m_animator.SetInteger("ActionState", 0);
+                    if(m_walkAudio.isPlaying)
+                        m_walkAudio.Stop();
+                }
             }else
             {
-                m_animator.SetInteger("ActionState", 0);
+                m_walkAudio.Stop();
             }
         }
         
@@ -52,9 +76,18 @@ public class PlayerController : MonoBehaviour
         playerCamera.transform.position = transform.position + cameraOffset;
     }
 
+    public void OnJump()
+    {
+        m_jumpAudio.Play();
+        m_walkAudio.Stop();
+
+        m_animator.SetInteger("ActionState", 3);
+    }
+
     public void OnHitStart()
     {
         IsHitting = true;
+        m_attackAudio.Play();
     }
 
     public void OnHitStop()
