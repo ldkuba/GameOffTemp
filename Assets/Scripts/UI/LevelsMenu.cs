@@ -15,6 +15,9 @@ public class LevelsMenu : MonoBehaviour
     [SerializeField]
     private GameObject m_listRoot;
 
+    [SerializeField]
+    private AudioClip m_buttonPressClip;
+
     void OnEnable()
     {
         m_listRoot.GetComponent<RectTransform>().sizeDelta = new Vector2(0, m_listSpacing * GameManager.Instance.Levels.Count);
@@ -46,6 +49,7 @@ public class LevelsMenu : MonoBehaviour
             }
 
             levelListItem.transform.Find("LevelName").GetComponent<Button>().onClick.AddListener(() => {
+                AudioSource.PlayClipAtPoint(m_buttonPressClip, new Vector3(0, 0, 0));
                 OnLevelSelect(level);
             });
 
@@ -69,5 +73,9 @@ public class LevelsMenu : MonoBehaviour
         {
             Destroy(child.gameObject);
         }
+    }
+    public void playButtonClick()
+    {
+        AudioSource.PlayClipAtPoint(m_buttonPressClip, new Vector3(0,0,0));
     }
 }

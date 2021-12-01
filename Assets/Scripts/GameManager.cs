@@ -133,7 +133,7 @@ public class GameManager : MonoBehaviour
     public void Play(LevelDescriptor level = null)
     {
         SavePlayerProgress();
-
+        GetComponent<GameManager>().GetComponent<AudioSource>().Stop();
         if(level == null)
         {
             if(PlayerProgress.CurrentLevel == null)
@@ -184,7 +184,7 @@ public class GameManager : MonoBehaviour
         SavePlayerProgress();
 
         CurrentLevel = null;
-
+        GetComponent<GameManager>().GetComponent<AudioSource>().Play();
         StartCoroutine(LoadScene(MenuScene));
     }
 

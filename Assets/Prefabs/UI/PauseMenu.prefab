@@ -138,6 +138,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_root: {fileID: 5355865749134621898}
+  m_buttonPressClip: {fileID: 8300000, guid: c5629aef49369a84bbe775f46ab4a57f, type: 3}
 --- !u!1 &2025908874733718063
 GameObject:
   m_ObjectHideFlags: 0
