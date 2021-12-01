@@ -35,6 +35,7 @@ public class Checkpoint : MonoBehaviour
     {
         m_active = active;
         AudioSource.PlayClipAtPoint(m_activeCheckClip, new Vector3(0, 0, 0));
+        
         SetColour(active);
     }
 

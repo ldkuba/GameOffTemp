@@ -8,6 +8,8 @@ public class PauseMenu : MonoBehaviour
 
     [SerializeField]
     private GameObject m_root;
+    [SerializeField]
+    private AudioClip m_buttonPressClip;
 
     private void ToggleActive()
     {
@@ -29,11 +31,13 @@ public class PauseMenu : MonoBehaviour
 
     public void OnResume()
     {
+        AudioSource.PlayClipAtPoint(m_buttonPressClip, new Vector3(0, 0, 0));
         SetMenuActive(false);
     }
 
     public void OnQuitToMenu()
     {
+        AudioSource.PlayClipAtPoint(m_buttonPressClip, new Vector3(0, 0, 0));
         GameManager.Instance.ExitToMenu();
     }
 }
