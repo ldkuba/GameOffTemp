@@ -14,5 +14,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   scenePath: Interactibles
   levelName: Switches
-  thumbnail: {fileID: 0}
+  thumbnail: {fileID: 21300000, guid: cf1de12e3277fb34b9d5a6670f523e83, type: 3}
   totalCoins: 0
